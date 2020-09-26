@@ -1,18 +1,35 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <joke-button> </joke-button>
+    <div></div>
+    <loud-joke v-if="jokeType === 'loud'" key="loud" > </loud-joke>
+    <snake-joke v-else-if="jokeType === 'snake'" key="snake"> </snake-joke>
+    <normal-joke v-else-if="jokeType === 'normal'" key="normal"> </normal-joke>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import JokeButton from './components/jokeButton.vue'
+import LoudJoke from './components/loudjoke.vue'
+import SnakeJoke from './components/snakeJoke.vue'
+import NormalJoke from './components/normalJoke.vue'
+
 
 export default {
   name: "App",
   components: {
-    HelloWorld
-  }
+    JokeButton,
+    LoudJoke,
+    SnakeJoke,
+    NormalJoke
+
+  },
+  computed: {
+    jokeType: function() {
+      return this.$store.state.jokeType
+    }
+  },
 };
 </script>
 
