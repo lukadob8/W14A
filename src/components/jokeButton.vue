@@ -1,6 +1,7 @@
 <template>
-    <div>
+    <div id="grid">
         <button @click="getJoke"> Click for Joke </button>
+        <div></div>
         <button @click="updateType('loud')"> Click for Loud Joke </button>
         <button @click="updateType('snake')"> Click for Snake Joke </button>
         <button @click="updateType('normal')"> Click for Normal Joke </button>
@@ -36,5 +37,6 @@ import axios from "axios"
 </script>
 
 <style scoped>
+
 
 </style>
